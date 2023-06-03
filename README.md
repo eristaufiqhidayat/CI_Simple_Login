@@ -1,11 +1,17 @@
 # Web Application with FW CodeIgniter 4 Simple Management Menu
 
-## Instalasi CodeIgneter 4
+## Installation CodeIgneter 4
 
-# Create directory project in root
+### Create directory project in root
 
-# example
+### example
 
-# c:\xamp\htdocs\CI_Simple_Login
+mkdir c:\xamp\htdocs\CI_Simple_Login
+
+### Change Directory
+
+cd c:\xamp\htdocs\CI_Simple_Login
+
+### execute this command
 
 composer create-project codeigniter4/appstarter .
