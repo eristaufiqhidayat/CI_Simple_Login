@@ -1,6 +1,6 @@
 # Web Application with FW CodeIgniter 4 Simple Management Menu
 
-# Instalation CodeIgneter 4
+## Instalasi CodeIgneter 4
 
 # Create directory project in root
 
