@@ -2,7 +2,7 @@
 
 Simple Management Menu
 
-## 1. Simple Installation CodeIgneter 4
+## 1. Installation CodeIgneter 4
 
 ### Create directory project in root
 
