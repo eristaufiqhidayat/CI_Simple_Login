@@ -14,6 +14,6 @@ mkdir c:\xamp\htdocs\CI_Simple_Login
 
 cd c:\xamp\htdocs\CI_Simple_Login
 
-### execute this command [t]
+### execute this command
 
 composer create-project codeigniter4/appstarter .
