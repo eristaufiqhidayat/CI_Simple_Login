@@ -2,6 +2,12 @@
 
 Simple Management Menu
 
+## Prerequisites
+
+The following requirements must be met to be able to use the GitHub Actions Importer:
+
+- Apache, Php and MySql Must be installed.
+
 ## 1. Installation CodeIgneter 4
 
 ### Create directory project in root
