@@ -8,6 +8,8 @@ Simple Management Menu
 
 ### example
 
+For xampp with mysql database
+
 ```bash
 mkdir c:\xamp\htdocs\CI_Simple_Login
 ```
