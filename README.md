@@ -32,6 +32,31 @@ cd c:\xamp\htdocs\CI_Simple_Login
 composer create-project codeigniter4/appstarter .
 ```
 
+## 2. Installation Myth:Auth
+
+### Untuk Login
+
+```bash
+composer require myth/auth
+```
+
+### edit app/Config/Autoload.php
+
+```bash
+    $psr4 = [
+        'Config'      => APPPATH . 'Config',
+        APP_NAMESPACE => APPPATH,
+        'App'         => APPPATH,
+        'Myth\Auth'   => APPPATH . 'ThirdParty/myth-auth/src',
+    ];
+```
+
+### execute this command
+
+```bash
+composer create-project codeigniter4/appstarter .
+```
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
