@@ -64,7 +64,7 @@ composer create-project codeigniter4/appstarter .
 Group Default "user"
 My Conf requireActivation = null
 
-# edit \vendor\myth\auth\src\Config\Auth.php
+### edit \vendor\myth\auth\src\Config\Auth.php
 
 ```bash
 public $defaultUserGroup = 'user';
