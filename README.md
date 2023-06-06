@@ -2,6 +2,8 @@
 
 Simple Management Menu
 
+![App Screenshot](CI_Simple_login.jpg)
+
 ## Prerequisites
 
 The following requirements must be met to be able to use the GitHub Actions Importer:
@@ -55,6 +57,21 @@ composer require myth/auth
 
 ```bash
 composer create-project codeigniter4/appstarter .
+```
+
+### MY Configuration
+
+Group Default "user"
+My Conf requireActivation = null
+
+# edit \vendor\myth\auth\src\Config\Auth.php
+
+```bash
+public $defaultUserGroup = 'user';
+```
+
+```bash
+public $requireActivation = null;
 ```
 
 ## Contributing
