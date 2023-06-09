@@ -34,6 +34,7 @@ $routes->get('/', 'Home::index', ['filter' => 'role:admin, user']);
 $routes->get('/users/index/(:any)/(:any)', 'CUser::index/$1/$2', ['filter' => 'role:admin']);
 $routes->post('/users/tambah/(:any)/(:any)', 'CUser::tambah/$1/$2', ['filter' => 'role:admin']);
 $routes->post('/users/hapus/(:any)/(:any)', 'CUser::hapus/$1/$2', ['filter' => 'role:admin']);
+$routes->post('/users/edit/(:any)/(:any)', 'CUser::rubah/$1/$2', ['filter' => 'role:admin']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing

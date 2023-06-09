@@ -128,13 +128,28 @@
                             </button>
                           </div>
                           <div class="modal-body">
-                            <form action="<?php echo base_url('index.php/menu/edit/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                            <form action="<?php echo base_url('index.php/users/edit/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 
                               <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon3">id_menu</span>
-                                <input name="id_menu" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv['username']; ?>">
+                                <span class="input-group-text" id="basic-addon3">id user</span>
+                                <input name="id" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv['id']; ?>">
                               </div>
-
+                              <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon3">username</span>
+                                <input name="username" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv['username']; ?>">
+                              </div>
+                              <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon3">Email </span>
+                                <input name="email" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv['email']; ?>">
+                              </div>
+                              <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon3">Password </span>
+                                <input name="password" type="password" class="form-control" id="recipient-name" value="">
+                              </div>
+                              <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon3">Ulangi Password </span>
+                                <input name="pass_confirm" type="password" class="form-control" id="recipient-name" value="">
+                              </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button class="btn btn-primary"><i class="fas fa-save"> Save</i></button>

@@ -51,10 +51,40 @@ class CUser extends BaseController
             return view('Admin/V_Users', $data);
         }
     }
+    public function rubah()
+    {
+        $rules = [
+            //'password'     => 'required|strong_password',
+            'password'     => 'required',
+            'pass_confirm' => 'required|matches[password]',
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+        $users = new MUser();
+        $user = $users->find($this->request->getPost('id'));
+
+        $newemail = $this->request->getPost('email');
+        $newpass = $this->request->getPost('password');
+
+        unset($user->username);
+
+        if (!isset($user->username)) {
+            $user->email = $newemail;
+            $user->password_hash = password_hash(base64_encode(hash('sha384', $newpass, true)), PASSWORD_DEFAULT);
+        }
+        if (!empty($this->config->defaultUserGroup)) {
+            $usergroup = model(UserModel::class);
+            $usergroup = $usergroup->withGroup($this->config->defaultUserGroup);
+        }
+        $users->save($user);
+        return redirect()->back()->with('message', lang('Auth.userupdate'));
+    }
     public function hapus()
     {
         $users = model(UserModel::class);
-        $users->Delete($this->request->getPost('id'));
+        $users->Delete($this->request->getPost('id'), true);
         return redirect()->back()->with('message', lang('Auth.userdelete'));
     }
     public function tambah()
