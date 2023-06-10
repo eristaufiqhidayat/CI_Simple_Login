@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\MMenu;
-use App\Models\MUser;
+use App\Models\Admin\MUser;
+use Myth\Auth\Commands\SetPassword;
 use Myth\Auth\Config\Auth as AuthConfig;
 use Myth\Auth\Entities\User;
 use Myth\Auth\Models\UserModel;
@@ -34,6 +35,8 @@ class CUser extends BaseController
     {
         helper('text');
         $auth = service('authentication');
+        $authorize = service('authorization');
+        $groups = $authorize->groups();
         $menu = new MMenu();
         $datamenu = $menu->listing();
         $model = new MUser();
@@ -43,12 +46,13 @@ class CUser extends BaseController
             'DataMenu'    => $datamenu2,
             'menu'   =>  $datamenu,
             'menuAktip' => $menuAktip,
-            'moduleAktip' => $moduleAktip
+            'moduleAktip' => $moduleAktip,
+            'groupUser' => $groups,
         );
         if (!$auth->check()) {
             return redirect()->route('login');
         } else {
-            return view('Admin/V_Users', $data);
+            return view('Admin/VUsers', $data);
         }
     }
     public function rubah()
@@ -64,7 +68,6 @@ class CUser extends BaseController
         }
         $users = new MUser();
         $user = $users->find($this->request->getPost('id'));
-
         $newemail = $this->request->getPost('email');
         $newpass = $this->request->getPost('password');
 
@@ -72,12 +75,14 @@ class CUser extends BaseController
 
         if (!isset($user->username)) {
             $user->email = $newemail;
+            // $allowedPostFields = array_merge(['password'], $this->config->validFields, $this->config->personalFields);
+            // $user              = new User($this->request->getPost($allowedPostFields));
             $user->password_hash = password_hash(base64_encode(hash('sha384', $newpass, true)), PASSWORD_DEFAULT);
         }
-        if (!empty($this->config->defaultUserGroup)) {
-            $usergroup = model(UserModel::class);
-            $usergroup = $usergroup->withGroup($this->config->defaultUserGroup);
-        }
+
+        $authorize = service('authorization');
+        $authorize->removeUserFromGroup($user->id, 1);
+        $authorize->addUserToGroup($user->id, $this->request->getPost('groupid'));
         $users->save($user);
         return redirect()->back()->with('message', lang('Auth.userupdate'));
     }

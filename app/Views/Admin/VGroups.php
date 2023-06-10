@@ -35,13 +35,12 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h2>Edit Data User</h2>
+              <h2>Edit Data Group</h2>
             </div>
             <!-- /.card-header -->
             <?php $session = \Config\Services::session();
-            if ($session->getFlashdata('message')) { ?>
-              <p class="alert alert-success"><?php echo $session->getFlashdata('message');
-                                              ?></p>
+            if ($session->getFlashdata('sukses')) { ?>
+              <p class="alert alert-success"><?php echo $session->getFlashdata('sukses'); ?></p>
             <?php } ?>
             <div class="card-body">
 
@@ -55,22 +54,19 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      <form action="<?php echo base_url('index.php/users/tambah/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                      <form action="<?php echo base_url('index.php/groups/tambah/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                        <?= csrf_field() ?>
                         <div class="input-group mb-3">
-                          <span class="input-group-text" id="basic-addon3">Nama User</span>
-                          <input name="username" type="text" class="form-control" id="recipient-name" value="">
+                          <span class="input-group-text" id="basic-addon3">id</span>
+                          <input name="id" type="text" class="form-control" id="recipient-name" value="">
                         </div>
                         <div class="input-group mb-3">
-                          <span class="input-group-text" id="basic-addon3">Email</span>
-                          <input name="email" type="text" class="form-control" id="recipient-name" value="">
+                          <span class="input-group-text" id="basic-addon3">Name</span>
+                          <input name="name" type="text" class="form-control" id="recipient-name" value="">
                         </div>
                         <div class="input-group mb-3">
-                          <span class="input-group-text" id="basic-addon3">Password</span>
-                          <input name="password" type="text" class="form-control" id="recipient-name" value="">
-                        </div>
-                        <div class="input-group mb-3">
-                          <span class="input-group-text" id="basic-addon3">Retype Password</span>
-                          <input name="pass_confirm" type="text" class="form-control" id="recipient-name" value="">
+                          <span class="input-group-text" id="basic-addon3">Descripsion</span>
+                          <input name="description" type="text" class="form-control" id="recipient-name" value="">
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -91,11 +87,8 @@
                   <tr>
                     <th width=100 scope="col"></th>
                     <th scope="col">id</th>
-                    <th scope="col">username</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">password</th>
-                    <th scope="col">activate hash</th>
-                    <th scope="col">active</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Descripsion</th>
                     <!-- <th scope="col">COCOK</th> -->
 
                   </tr>
@@ -104,21 +97,18 @@
                   <?php foreach ($DataMenu as $DataMenuv) { ?>
                     <tr>
                       <td>
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#Modal<?php echo $DataMenuv['username']; ?>" type="button" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></button>
-                        <button class="btn btn-primary btn-danger" data-toggle="modal" data-target="#ModalDelete<?php echo $DataMenuv['username']; ?>" type="button" class="btn btn-primary"><i class="fas fa-trash"></i></button>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#Modal<?php echo $DataMenuv->id; ?>" type="button" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="btn btn-primary btn-danger" data-toggle="modal" data-target="#ModalDelete<?php echo $DataMenuv->id; ?>" type="button" class="btn btn-primary"><i class="fas fa-trash"></i></button>
                       </td>
-                      <td><?php echo $DataMenuv['id']; ?></td>
-                      <td><?php echo $DataMenuv['username']; ?></td>
-                      <td><?php echo $DataMenuv['email']; ?></td>
-                      <td><?php echo $DataMenuv['password_hash']; ?></td>
-                      <td><?php echo $DataMenuv['activate_hash']; ?></td>
-                      <td><?php echo $DataMenuv['active']; ?></td>
-                      <!-- <td><?php echo password_verify(base64_encode(hash('sha384', '123', true)), $DataMenuv['password_hash']); ?></td> -->
+                      <td><?php echo $DataMenuv->id; ?></td>
+                      <td><?php echo $DataMenuv->name; ?></td>
+                      <td><?php echo $DataMenuv->description; ?></td>
+
 
 
                     </tr>
                     <!-- Modal Edit  -->
-                    <div class="modal fade" id="Modal<?php echo $DataMenuv['username']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="Modal<?php echo $DataMenuv->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -128,27 +118,19 @@
                             </button>
                           </div>
                           <div class="modal-body">
-                            <form action="<?php echo base_url('index.php/users/edit/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                            <form action="<?php echo base_url('index.php/groups/edit/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 
                               <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon3">id user</span>
-                                <input name="id" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv['id']; ?>">
+                                <span class="input-group-text" id="basic-addon3">id_menu</span>
+                                <input name="id" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv->id; ?>">
                               </div>
                               <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon3">username</span>
-                                <input name="username" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv['username']; ?>">
+                                <span class="input-group-text" id="basic-addon3">Nama Group</span>
+                                <input name="name" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv->name; ?>">
                               </div>
                               <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon3">Email </span>
-                                <input name="email" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv['email']; ?>">
-                              </div>
-                              <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon3">Password </span>
-                                <input name="password" type="password" class="form-control" id="recipient-name" value="">
-                              </div>
-                              <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon3">Ulangi Password </span>
-                                <input name="pass_confirm" type="password" class="form-control" id="recipient-name" value="">
+                                <span class="input-group-text" id="basic-addon3">description</span>
+                                <input name="description" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv->description; ?>">
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -161,7 +143,7 @@
                       </div>
                     </div>
                     <!-- /Modal Delete -->
-                    <div class="modal fade" id="ModalDelete<?php echo $DataMenuv['username']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="ModalDelete<?php echo $DataMenuv->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -171,15 +153,11 @@
                             </button>
                           </div>
                           <div class="modal-body danger">
-                            <form action="<?php echo base_url('index.php/users/hapus/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                            <form action="<?php echo base_url('index.php/groups/hapus/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 
                               <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon3">user name</span>
-                                <input name="id" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv['id']; ?>">
-                              </div>
-                              <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon3">user name</span>
-                                <input name="username" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv['username']; ?>">
+                                <span class="input-group-text" id="basic-addon3">id_menu</span>
+                                <input name="id" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv->id; ?>">
                               </div>
 
                               <div class="modal-footer">
@@ -207,6 +185,14 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('javascript') ?>
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+  <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
 <!-- jQuery -->
 <script src="<?php echo BPATH; ?>/asset/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->

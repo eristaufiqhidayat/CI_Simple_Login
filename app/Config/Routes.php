@@ -31,10 +31,14 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 //$routes->get('/', 'Home::index');
 $routes->get('/', 'Home::index', ['filter' => 'role:admin, user']);
-$routes->get('/users/index/(:any)/(:any)', 'CUser::index/$1/$2', ['filter' => 'role:admin']);
-$routes->post('/users/tambah/(:any)/(:any)', 'CUser::tambah/$1/$2', ['filter' => 'role:admin']);
-$routes->post('/users/hapus/(:any)/(:any)', 'CUser::hapus/$1/$2', ['filter' => 'role:admin']);
-$routes->post('/users/edit/(:any)/(:any)', 'CUser::rubah/$1/$2', ['filter' => 'role:admin']);
+$routes->get('/users/index/(:any)/(:any)', 'Admin\CUser::index/$1/$2', ['filter' => 'role:admin']);
+$routes->post('/users/tambah/(:any)/(:any)', 'Admin\CUser::tambah/$1/$2', ['filter' => 'role:admin']);
+$routes->post('/users/hapus/(:any)/(:any)', 'Admin\CUser::hapus/$1/$2', ['filter' => 'role:admin']);
+$routes->post('/users/edit/(:any)/(:any)', 'Admin\CUser::rubah/$1/$2', ['filter' => 'role:admin']);
+$routes->get('/groups/index/(:any)/(:any)', 'Admin\CGroups::index/$1/$2', ['filter' => 'role:admin']);
+$routes->post('/groups/tambah/(:any)/(:any)', 'Admin\CGroups::tambah/$1/$2', ['filter' => 'role:admin']);
+$routes->post('/groups/edit/(:any)/(:any)', 'Admin\CGroups::rubah/$1/$2', ['filter' => 'role:admin']);
+$routes->post('/groups/hapus/(:any)/(:any)', 'Admin\CGroups::hapus/$1/$2', ['filter' => 'role:admin']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing
