@@ -35,7 +35,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h2>Edit Data Group</h2>
+                            <h2>Edit Data Permission</h2>
                         </div>
                         <!-- /.card-header -->
                         <?php $session = \Config\Services::session();
@@ -48,13 +48,13 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Tambah Data User</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Tambah Data Permission</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="<?php echo base_url('index.php/groups/tambah/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                                            <form action="<?php echo base_url('index.php/permission/tambah/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
                                                 <?= csrf_field() ?>
                                                 <div class="input-group mb-3">
                                                     <span class="input-group-text" id="basic-addon3">id</span>
@@ -94,7 +94,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($DataMenu as $DataMenuv) { ?>
+                                    <?php foreach ($permission as $DataMenuv) { ?>
                                         <tr>
                                             <td>
                                                 <button class="btn btn-primary" data-toggle="modal" data-target="#Modal<?php echo $DataMenuv->id; ?>" type="button" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></button>
@@ -118,7 +118,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="<?php echo base_url('index.php/groups/edit/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                                                        <form action="<?php echo base_url('index.php/permission/edit/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 
                                                             <div class="input-group mb-3">
                                                                 <span class="input-group-text" id="basic-addon3">id_menu</span>
@@ -153,7 +153,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body danger">
-                                                        <form action="<?php echo base_url('index.php/groups/hapus/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                                                        <form action="<?php echo base_url('index.php/permission/hapus/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 
                                                             <div class="input-group mb-3">
                                                                 <span class="input-group-text" id="basic-addon3">id_menu</span>

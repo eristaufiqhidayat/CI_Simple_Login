@@ -4,16 +4,16 @@ namespace App\Models\Admin;
 
 use CodeIgniter\Model;
 
-class MPermission extends Model
+class MPermissionGroups extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'auth_permissions';
+    protected $table            = 'mpermissiongroups';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
-    protected $returnType       = \App\Entities\EPermission::class;
+    protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id', 'name', 'description'];
+    protected $allowedFields    = [];
 
     // Dates
     protected $useTimestamps = false;

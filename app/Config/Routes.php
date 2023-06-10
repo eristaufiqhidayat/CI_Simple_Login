@@ -39,6 +39,10 @@ $routes->get('/groups/index/(:any)/(:any)', 'Admin\CGroups::index/$1/$2', ['filt
 $routes->post('/groups/tambah/(:any)/(:any)', 'Admin\CGroups::tambah/$1/$2', ['filter' => 'role:admin']);
 $routes->post('/groups/edit/(:any)/(:any)', 'Admin\CGroups::rubah/$1/$2', ['filter' => 'role:admin']);
 $routes->post('/groups/hapus/(:any)/(:any)', 'Admin\CGroups::hapus/$1/$2', ['filter' => 'role:admin']);
+$routes->get('/permission/index/(:any)/(:any)', 'Admin\CPermission::index/$1/$2', ['filter' => 'role:admin']);
+$routes->post('/permission/tambah/(:any)/(:any)', 'Admin\CPermission::tambah/$1/$2', ['filter' => 'role:admin']);
+$routes->post('/permission/hapus/(:any)/(:any)', 'Admin\CPermission::hapus/$1/$2', ['filter' => 'role:admin']);
+$routes->post('/permission/edit/(:any)/(:any)', 'Admin\CPermission::rubah/$1/$2', ['filter' => 'role:admin']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing
