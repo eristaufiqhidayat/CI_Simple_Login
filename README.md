@@ -79,6 +79,12 @@ public $defaultUserGroup = 'user';
 public $requireActivation = null;
 ```
 
+### quick installation
+
+1. Create Folder CI_Simple_Login inside htdocs
+2. execute dummydata.sql in mysql server (phpmyadmin)
+3. login : admin pass : 123
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
