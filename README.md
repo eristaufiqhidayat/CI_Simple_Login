@@ -41,7 +41,7 @@ composer create-project codeigniter4/appstarter .
 
 ## 2. Installation Myth:Auth
 
-### Untuk Login
+### for Login
 
 ```bash
 composer require myth/auth
