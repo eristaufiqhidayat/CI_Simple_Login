@@ -1,23 +1,27 @@
-# Web Application with
+# Simple Login and Menu Management
 
-### - FW CodeIgniter 4,
+- FW CodeIgniter 4,
 
-### - template AdminLTE,
+- template AdminLTE,
 
-### - Auth sistem Myth/Auth,
+- Auth sistem Myth/Auth,
 
-### - database MySql
+- database MySql
 
-Simple Management Menu
+#### Simple Management Menu
+
 ![App Screenshot](menu_login.jpg)
 
-Tampilan Menu
+#### Tampilan Menu
+
 ![App Screenshot](CI_Simple_login.jpg)
 
-Reset Password
+#### Reset Password
+
 ![App Screenshot](reset_password.jpg)
 
-Relationsip table
+#### Relationsip table
+
 ![App Screenshot](relationsip.jpg)
 
 ## Prerequisites
