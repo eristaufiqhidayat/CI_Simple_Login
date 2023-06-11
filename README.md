@@ -6,6 +6,9 @@ Simple Management Menu
 Tampilan Menu
 ![App Screenshot](CI_Simple_login.jpg)
 
+Reset Password
+![App Screenshot](reset_password.jpg)
+
 ## Prerequisites
 
 The following requirements must be met to be able to use the GitHub Actions Importer:
