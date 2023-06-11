@@ -8,19 +8,19 @@
 
 - database MySql
 
-#### Simple Management Menu
+#### Screenshot Login
 
 ![App Screenshot](menu_login.jpg)
 
-#### Tampilan Menu
+#### Screenshot Menu
 
 ![App Screenshot](CI_Simple_login.jpg)
 
-#### Reset Password
+#### Screenshot Reset Password
 
 ![App Screenshot](reset_password.jpg)
 
-#### Relationsip table
+#### Screenshot Relationsip table
 
 ![App Screenshot](relationsip.jpg)
 
