@@ -3,80 +3,64 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
-use App\Models\Admin\M_DataMenu;
-use App\Models\Admin\M_DataModule;
-use App\Models\M_Menu;
+use App\Models\Admin\MModule;
+use App\Models\Admin\MDataMenu;
+use App\Models\MMenu;
 
-class C_Menu extends BaseController
+class CMenu extends BaseController
 {
     public function index($menuAktip = '', $moduleAktip = '')
     {
         helper('text');
 
-        $menu = new M_Menu();
+        $menu = new MMenu();
         $datamenu = $menu->listing();
-        $model = new M_DataMenu();
-        $datamenu2 = $model->listing();
-        $mdatamodule = new M_DataModule();
-        $datamodule = $mdatamodule->listing();
+        $model = new MDataMenu();
+        //$datamenu2 = $model->findAll();
+        $datamenu2 = $model->jointmodule();
+
         $data = array(
-            'title'        => 'Data Menu',
+            'title'        => 'Data Module',
             'DataMenu'    => $datamenu2,
-            'DataModule'    => $datamodule,
             'menu'   =>  $datamenu,
             'menuAktip' => $menuAktip,
             'moduleAktip' => $moduleAktip
         );
-        return view('Admin/V_DataMenu', $data);
+        return view('Admin/VDataMenu', $data);
     }
     public function tambah($menuAktip = '', $moduleAktip = '')
     {
-        helper('form');
-        $menu = new M_Menu();
-        $datamenu = $menu->listing();
-        $session = \Config\Services::session();
+        $menumodel = new MDataMenu();
+        $datamenu           = new \App\Entities\EDataMenu();
+        $datamenu->id_module = $this->request->getPost('id_module');
+        $datamenu->path    = $this->request->getPost('path');
+        $datamenu->menu    = $this->request->getPost('menu');
+        $datamenu->icon    = $this->request->getPost('icon');
 
-        $validated =  $this->validate([
-            'id_module'     => 'required'
-        ]);
-        if ($validated) {
-            $data = array(
-                'id_module'        => $this->request->getVar('id_module'),
-                'icon'    => $this->request->getVar('icon'),
-                'menu'    => $this->request->getVar('menu'),
-                'path'    => $this->request->getVar('path')
-            );
-            $model = new M_DataMenu();
-            $model->tambah($data);
-            $session->setFlashdata('sukses', 'Data telah ditambah');
-            return redirect()->to(base_url('index.php/menu/index/' . $menuAktip . '/' . $moduleAktip));
-            // End masuk database
-        }
+        $menumodel->save($datamenu);
+        return redirect()->back()->with('message', lang('Auth.userupdate'));
+        // End masuk database
+
     }
-    public function edit($menuAktip = '', $moduleAktip = '')
+    public function rubah($menuAktip = '', $moduleAktip = '')
     {
-        helper('form');
-        //$menu = new M_Menu();
-        //$datamenu = $menu->listing();  
-        $session = \Config\Services::session();
 
-        $validated =  $this->validate([
-            'id_menu'     => 'required'
-        ]);
-        if ($validated) {
-            $data = array(
-                'id_menu'    => $this->request->getVar('id_menu'),
-                'id_module'    => $this->request->getVar('id_module'),
-                'menu'    => $this->request->getVar('menu'),
-                'path'    => $this->request->getVar('path'),
-                'icon'    => $this->request->getVar('icon')
-            );
-            $model = new M_DataMenu();
-            $model->edit($data);
-            $session->setFlashdata('sukses', 'Data telah diedit');
-            return redirect()->to(base_url('index.php/menu/index/' . $menuAktip . '/' . $moduleAktip));
-            // End masuk database
+        $menumodel = new MDataMenu();
+        $datamenu = $menumodel->find($this->request->getPost('id_menu'));
+        unset($datamenu->id_module);
+        unset($datamenu->path);
+        unset($datamenu->menu);
+        unset($datamenu->icon);
+
+        if (!isset($datamenu->id_module)) {
+            $datamenu->id_module = $this->request->getPost('id_module');
+            $datamenu->path    = $this->request->getPost('path');
+            $datamenu->menu    = $this->request->getPost('menu');
+            $datamenu->icon    = $this->request->getPost('icon');
         }
+        $menumodel->save($datamenu);
+
+        return redirect()->back()->with('message', lang('Auth.userupdate'));
     }
     public function delete($menuAktip = '', $moduleAktip = '')
     {
@@ -91,7 +75,7 @@ class C_Menu extends BaseController
             $data = array(
                 'id_menu'    => $this->request->getVar('id_menu'),
             );
-            $model = new M_DataMenu();
+            $model = new MDataMenu();
             $model->delete($data);
             $session->setFlashdata('sukses', 'Data telah dihapus');
             return redirect()->to(base_url('index.php/menu/index/' . $menuAktip . '/' . $moduleAktip));

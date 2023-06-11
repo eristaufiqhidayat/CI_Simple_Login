@@ -80,7 +80,7 @@
                           <div class="container">
                             <div class="row">
                               <div class="col-2"><span class="input-group-text" id="basic-addon3">icon</span></div>
-                              <div class="col-6"><?php icons(); ?></div>
+                              <div class="col-6"><input name="icon" type="text" class="form-control" id="recipient-name" value=""></div>
                             </div>
                           </div>
                         </div>
@@ -112,16 +112,16 @@
                   <?php foreach ($DataModule as $DataModulev) { ?>
                     <tr>
                       <td>
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#Modal<?php echo $DataModulev['id_module']; ?>" type="button" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></button>
-                        <button class="btn btn-primary btn-danger" data-toggle="modal" data-target="#ModalDelete<?php echo $DataModulev['id_module']; ?>" type="button" class="btn btn-primary"><i class="fas fa-trash"></i></button>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#Modal<?php echo $DataModulev->id_module; ?>" type="button" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="btn btn-primary btn-danger" data-toggle="modal" data-target="#ModalDelete<?php echo $DataModulev->id_module; ?>" type="button" class="btn btn-primary"><i class="fas fa-trash"></i></button>
                       </td>
-                      <td><?php echo $DataModulev['id_module']; ?></td>
-                      <td><?php echo $DataModulev['nama_module']; ?></td>
-                      <td><?php echo $DataModulev['icon']; ?></td>
+                      <td><?php echo $DataModulev->id_module; ?></td>
+                      <td><?php echo $DataModulev->nama_module; ?></td>
+                      <td><?php echo $DataModulev->icon; ?></td>
 
                     </tr>
                     <!-- Modal Edit  -->
-                    <div class="modal fade" id="Modal<?php echo $DataModulev['id_module']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="Modal<?php echo $DataModulev->id_module; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -135,17 +135,17 @@
                               <?= csrf_field() ?>
                               <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon3">id_module</span>
-                                <input name="id_module" type="text" class="form-control" id="recipient-name" value="<?php echo $DataModulev['id_module']; ?>">
+                                <input name="id_module" type="text" class="form-control" id="recipient-name" value="<?php echo $DataModulev->id_module; ?>">
                               </div>
                               <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon3">Nama Module</span>
-                                <input name="nama_module" type="text" class="form-control" id="recipient-name" value="<?php echo $DataModulev['nama_module']; ?>">
+                                <input name="nama_module" type="text" class="form-control" id="recipient-name" value="<?php echo $DataModulev->nama_module; ?>">
                               </div>
                               <div class="input-group mb-3">
                                 <div class="container">
                                   <div class="row">
                                     <div class="col-2"><span class="input-group-text" id="basic-addon3">icon</span></div>
-                                    <div class="col-6"><?php icons(); ?></div>
+                                    <div class="col-6"><input name="icon" type="text" class="form-control" id="recipient-name" value="<?php echo $DataModulev->icon; ?>"></div>
                                   </div>
                                 </div>
                               </div>
@@ -159,7 +159,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="modal fade" id="ModalDelete<?php echo $DataModulev['id_module']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="ModalDelete<?php echo $DataModulev->id_module; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content bg-danger">
                           <div class="modal-header">
@@ -169,19 +169,19 @@
                             </button>
                           </div>
                           <div class="modal-body">
-                            <form action="<?php echo base_url('index.php/module/delete/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                            <form action="<?php echo base_url('index.php/module/hapus/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 
                               <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon3">id_module</span>
-                                <input name="id_module" type="text" class="form-control" id="recipient-name" value="<?php echo $DataModulev['id_module']; ?>" readonly>
+                                <input name="id_module" type="text" class="form-control" id="recipient-name" value="<?php echo $DataModulev->id_module; ?>" readonly>
                               </div>
                               <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon3">Nama Module</span>
-                                <input name="nama_module" type="text" class="form-control" id="recipient-name" value="<?php echo $DataModulev['nama_module']; ?>">
+                                <input name="nama_module" type="text" class="form-control" id="recipient-name" value="<?php echo $DataModulev->nama_module; ?>">
                               </div>
                               <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon3">Icon</span>
-                                <input name="icon" type="text" class="form-control" id="recipient-name" value="<?php echo $DataModulev['icon']; ?>">
+                                <input name="icon" type="text" class="form-control" id="recipient-name" value="<?php echo $DataModulev->icon; ?>">
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

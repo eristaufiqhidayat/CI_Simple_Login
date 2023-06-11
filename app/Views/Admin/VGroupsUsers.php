@@ -53,67 +53,79 @@
               <p class="alert alert-success"><?php echo $session->getFlashdata('sukses'); ?></p>
             <?php } ?>
             <div class="card-body">
-
-              <div class="modal fade" id="ModalTambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Tambah Data User</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <form action="<?php echo base_url('index.php/groupsUsers/ubahGroupUser/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-                        <?= csrf_field() ?>
-                        <div class="input-group mb-3">
-                          <span class="input-group-text" id="basic-addon3">Group</span>
-                          <select name=group_id class="form-control">
-                            <?php foreach ($DataGroup as $dataGroupk => $dataGroupv) { ?>
-                              <option value="<?= $dataGroupv['id'] ?>"><?= $dataGroupv['name'] ?></option>
-
-                            <?php } ?>
-                          </select>
-                        </div>
-                        <div class="input-group mb-3">
-                          <span class="input-group-text" id="basic-addon3">User</span>
-                          <select name=user_id class="form-control">
-                            <?php foreach ($DataUser as $dataUserk => $dataUserv) { ?>
-                              <option value="<?= $dataUserv['id'] ?>"><?= $dataUserv['username'] ?></option>
-
-                            <?php } ?>
-                          </select>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-primary">save</button>
-                        </div>
-                      </form>
-
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-              <p>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalTambah" data-whatever="@mdo"><i class="fas fa-folder-plus"> Edit group users</i></button>
-              </p>
               <table id="example1" class="table table-striped table-bordered table-sm">
                 <thead>
                   <tr>
-                    <th scope="col">Username</th>
-                    <th scope="col">Group Name</th>
-                    <th scope="col">Descripsion</th>
+                    <th scope="col">id</th>
+                    <th scope="col">user Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Group</th>
                     <!-- <th scope="col">COCOK</th> -->
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($DataMenu as $DataMenuv) { ?>
+                  <?php foreach ($users as $Datav) { ?>
                     <tr>
-                      <td><?php echo $DataMenuv['username']; ?></td>
-                      <td><?php echo $DataMenuv['name']; ?></td>
-                      <td><?php echo $DataMenuv['description']; ?></td>
+                      <td>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#Modal<?php echo $Datav['username']; ?>" type="button" class="btn btn-primary"><i class="fa fa-address-book"></i></button> Edit Group
+
+                      </td>
+                      <td><?php echo $Datav['id']; ?></td>
+                      <td><?php echo $Datav['username']; ?></td>
+                      <td><?php echo $Datav['email']; ?></td>
+                      <td>
+                        <table>
+                          <tr>
+                            <td>
+                              <?php
+                              $groupsname = groupsname($Datav['username']);
+                              foreach ($groupsname as $groupsv) {
+                                echo $groupsv['description'] . ",";
+                              }
+                              ?>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
                     </tr>
+                    <div class="modal fade" id="Modal<?php echo $Datav['username']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Pilih Group</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <form action="<?php echo base_url('index.php/groupsusers/edit/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+
+                              <div class="input-group mb-1">
+                                <span class="input-group-text" id="basic-addon3">Cek Group</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <?php
+                                $groupsname = groupsall($Datav['username']);
+                                foreach ($groupsname as $groupsv) {
+                                ?>
+                                  <div class="form-check form-check-inline">
+                                    <input name="group_id[<?php echo $groupsv['id']; ?>]" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="<?php echo $groupsv['id']; ?>">
+                                    <label class="form-check-label" for="inlineCheckbox1"><?php echo $groupsv['description']; ?></label>
+                                  </div>
+
+                                <?php
+                                }
+                                ?>
+                              </div>
+                              <input name="user_id" type=hidden value="<?php echo $Datav['id']; ?>">
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button class="btn btn-primary"><i class="fas fa-save"> Save</i></button>
+                              </div>
+                            </form>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
                   <?php } ?>
                 </tbody>
               </table>

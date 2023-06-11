@@ -58,7 +58,7 @@
                     }
                     ?>
                     <div class="modal-body">
-                      <form action="<?php echo base_url('index.php/permissionGroups/tambah/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                      <form action="<?php echo base_url('index.php/permissiongroups/update/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
                         <table class="table table-striped table-bordered table-sm">
                           <tr>
                             <th>

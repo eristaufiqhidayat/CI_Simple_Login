@@ -39,7 +39,7 @@
         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
         <li class="nav-item">
-          <a href="<?php echo base_url(); ?>dashboard/0/0" class="nav-link" style="background-color: navy; color: white; padding: 7px 10px; ">
+          <a href="<?php echo base_url(); ?>/" class="nav-link" style="background-color: navy; color: white; padding: 7px 10px; ">
             <p><i class="fas fa-chart-pie"></i>&nbsp;&nbsp;&nbsp;&nbsp;Dasboard</p>
           </a>
         </li><br>

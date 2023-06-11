@@ -3,19 +3,19 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
-use App\Models\Admin\M_DataModule;
-use App\Models\M_Menu;
+use App\Models\Admin\MModule;
+use App\Models\MMenu;
 
-class C_Module extends BaseController
+class CModule extends BaseController
 {
     public function index($menuAktip = '', $moduleAktip = '')
     {
         helper('text');
 
-        $menu = new M_Menu();
+        $menu = new MMenu();
         $datamenu = $menu->listing();
-        $model = new M_DataModule();
-        $datamodule = $model->listing();
+        $model = new MModule();
+        $datamodule = $model->findAll();
 
         $data = array(
             'title'        => 'Data Module',
@@ -24,93 +24,37 @@ class C_Module extends BaseController
             'menuAktip' => $menuAktip,
             'moduleAktip' => $moduleAktip
         );
-        return view('Admin/V_DataModule', $data);
+        return view('Admin/VDataModule', $data);
     }
-
-    public function edit($menuAktip = '', $moduleAktip = '')
+    public function tambah()
     {
-        helper('form');
-        $menu = new M_Menu();
-        $datamenu = $menu->listing();
-        $session = \Config\Services::session();
-
-        $validated =  $this->validate([
-            'id_module'     => 'required'
-        ]);
-        if ($validated) {
-            $data = array(
-                'id_module'        => $this->request->getVar('id_module'),
-                'nama_module'    => $this->request->getVar('nama_module'),
-                'icon'    => $this->request->getVar('icon')
-            );
-            $model = new M_DataModule();
-            $model->edit($data);
-            $datamodule = $model->listing();
-            $data = array(
-                'title'        => 'Java Web Media - Spesialis Kursus Codeigniter',
-                'DataModule'    => $datamodule,
-                'content'    => 'home/index',
-                'menu'   =>  $datamenu
-            );
-            $session->setFlashdata('sukses', 'Data telah diedit');
-            return redirect()->to(base_url('index.php/module/index/' . $menuAktip . '/' . $moduleAktip));
-            // End masuk database
-        }
+        $modulemodel = new MModule();
+        $module           = new \App\Entities\EModule();
+        $module->nama_module = $this->request->getPost('nama_module');
+        $module->icon    = $this->request->getPost('icon');
+        $modulemodel->save($module);
+        return redirect()->back()->with('message', lang('Auth.userupdate'));
     }
-
-    public function tambah($menuAktip = '', $moduleAktip = '')
+    public function rubah()
     {
-        helper('form');
-        $session = \Config\Services::session();
-        $validated =  $this->validate([
-            'nama_module'     => 'required'
-        ]);
-        if ($validated) {
-            $data = array(
-                'nama_module'    => $this->request->getVar('nama_module'),
-                'icon'    => $this->request->getVar('icon')
-            );
-            $model = new M_DataModule();
-            if ($model->tambah($data)) {
-                $session->setFlashdata('error', 'Data gagal ditambah');
-            } else {
-                $session->setFlashdata('msg', 'Data sukses ditambah');
-            }
 
-            return redirect()->to(base_url('index.php/module/index/' . $menuAktip . '/' . $moduleAktip));
-            // End masuk database
-        } else {
-            $session->setFlashdata('error', 'Data Gagal disimpan Validasi Error');
-            return redirect()->to(base_url('index.php/module/index/' . $menuAktip . '/' . $moduleAktip));
+        $modulemodel = new MModule();
+        $module = $modulemodel->find($this->request->getPost('id_module'));
+        unset($module->nama_module);
+        unset($module->icon);
+
+        if (!isset($module->nama_module)) {
+            $module->nama_module = $this->request->getPost('nama_module');
+            $module->icon    = $this->request->getPost('icon');
         }
+        $modulemodel->save($module);
+
+        return redirect()->back()->with('message', lang('Auth.userupdate'));
     }
-    public function delete($menuAktip = '', $moduleAktip = '')
+    public function hapus()
     {
-        helper('form');
-
-        $session = \Config\Services::session();
-        $validated =  $this->validate([
-            'id_module'     => 'required',
-            'nama_module'     => 'required'
-        ]);
-        if ($validated) {
-            $data = array(
-                'id_module'        => $this->request->getVar('id_module'),
-                'nama_module'    => $this->request->getVar('nama_module'),
-                'icon'    => $this->request->getVar('icon')
-            );
-            $model = new M_DataModule();
-            if ($model->hapus($data)) {
-                $session->setFlashdata('error', 'Data gagal dihapus');
-            } else {
-                $session->setFlashdata('msg', 'Data sukses dihapus');
-            }
-
-            return redirect()->to(base_url('index.php/module/index/' . $menuAktip . '/' . $moduleAktip));
-            // End masuk database
-        } else {
-            $session->setFlashdata('error', 'Data Gagal disimpan Validasi Error');
-            return redirect()->to(base_url('index.php/module/index/' . $menuAktip . '/' . $moduleAktip));
-        }
+        $modulemodel = new MModule();
+        $modulemodel->delete($this->request->getPost('id_module'), true);
+        return redirect()->back()->with('message', lang('Auth.userupdate'));
     }
 }

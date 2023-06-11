@@ -36,44 +36,22 @@
             <div class="card-header">
               <h3 class="card-title">Berita Arafah</h3>
             </div>
+            <table class="table table-bordered table-striped table-sm">
+              <?php
+              //var_dump($dataBerita);
+              foreach ($dataBerita as $datav) { ?>
+                <tr>
+                  <td width=40% align="center"><img src="<?php echo $datav["gambar"] ?>" width="50%"></td>
+                  <td><?php echo $datav["post_title"] . "......" ?><a href="https://lembaharafah.com/<?php echo $datav["post_name"] ?>/">[Detil]</a></td>
+                </tr>
 
+              <?php } ?>
+            </table>
           </div>
         </td>
       </tr>
-      <tr>
-        <td>
-          <div class="card card-blue">
-            <div class="card-header">
-              <h3 class="card-title">Kalender Akedemik Arafah</h3>
-            </div>
 
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td width=50% valign=top>
-          <div class="card card-blue">
-            <div class="card-header">
-              <h3 class="card-title">Chart Jumlah Murid Bebas Biaya (Yatim / Beasiswa)</h3>
-            </div>
-            <div class="card-body">
-              <canvas id="pieChart" style="min-height: 250px; height: 400px; max-height: 400px; max-width: 100%; display: block; width: 326px;" width="326" class="chartjs-render-monitor"></canvas>
-              <br>
-              <table class="table table-bordered table-striped table-sm">
-                <thead>
-                  <tr>
-                    <td>Kelas</td>
-                    <td>Jumlah</td>
-                  </tr>
-                </thead>
-                <tbody>
 
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </td>
-      </tr>
     </table>
 
   </section>

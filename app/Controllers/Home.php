@@ -10,6 +10,10 @@ class Home extends BaseController
     {
         if (isset(user()->username)) {
             helper('text');
+            $json_berita = file_get_contents('http://restapi.lembaharafah.com/public/index.php/BERITA/553da6a93aa6c69f0363048aa677efee');
+            $json_kalender = file_get_contents('http://restapi.lembaharafah.com/public/index.php/KALENDER/553da6a93aa6c69f0363048aa677efee');
+            $dataBerita = json_decode($json_berita, true);
+            $dataKalender = json_decode($json_kalender, true);
             $menu = new MMenu();
             $datamenu = $menu->listing();
 
@@ -17,6 +21,8 @@ class Home extends BaseController
                 'title'        => '',
                 'content'    => 'home/index',
                 'menu'   =>  $datamenu,
+                'dataBerita' => $dataBerita,
+                'dataKalender' => $dataKalender,
                 'menuAktip' => $menuAktip,
                 'moduleAktip' => $moduleAktip
             );

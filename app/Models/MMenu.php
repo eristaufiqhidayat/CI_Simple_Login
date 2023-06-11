@@ -35,6 +35,7 @@ class MMenu extends Model
                 left join tbl_module on tbl_module.id_module = auth_permissions.id
                 left join tbl_menu on tbl_module.id_module = tbl_menu.id_module
                 where users.username = '" . user()->username . "'
+                group by tbl_menu.menu
                 order by tbl_module.id_module,tbl_menu.menu
                 ";
         $query = $db->query($sql);

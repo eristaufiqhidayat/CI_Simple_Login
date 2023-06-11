@@ -10,7 +10,7 @@
                     <?= view('Myth\Auth\Views\_message_block') ?>
                     <p><?= lang('Auth.enterCodeEmailPassword') ?></p>
 
-                    <form action="<?php echo base_url(); ?>/index.php/users/cpassdo/10/2" method="post">
+                    <form action="<?php echo base_url(); ?>index.php/users/cpassdo/10/2" method="post">
                         <?= csrf_field() ?>
                         <input type="hidden" class="form-control" name="username" value="<?= user()->username; ?>">
                         <div class="form-group">

@@ -69,9 +69,9 @@
                           <span class="input-group-text" id="basic-addon3">Module</span>
                           <select name=id_module class="form-control">
                             <?php
-                            foreach ($DataModule as $DataModulek => $DataModulev) {
+                            foreach (listmodule() as $DataMenuk => $DataMenuv) {
                             ?>
-                              <option value="<?= $DataModulev['id_module'] ?>"><?= $DataModulev['nama_module'] ?></option>
+                              <option value="<?= $DataMenuv['id_module'] ?>"><?= $DataMenuv['nama_module'] ?></option>
                             <?php } ?>
                           </select>
                         </div>
@@ -83,13 +83,9 @@
                           <span class="input-group-text" id="basic-addon3">Path</span>
                           <input name="path" type="text" class="form-control" id="recipient-name" value="">
                         </div>
-                        <div class="input-group mb-3">
-                          <div class="container">
-                            <div class="row">
-                              <div class="col-2"><span class="input-group-text" id="basic-addon3">icon</span></div>
-                              <div class="col-6"><?php icons(); ?></div>
-                            </div>
-                          </div>
+                        <div class="input-group mb-3"><span class="input-group-text" id="basic-addon3">icon</span>
+                          <input name="icon" type="text" class="form-control" id="recipient-name" value="">
+
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -154,14 +150,14 @@
                                 <span class="input-group-text" id="basic-addon3">Module</span>
                                 <select name=id_module class="form-control">
                                   <?php
-                                  foreach ($DataModule as $DataModulek => $DataModulev) {
-                                    if ($DataMenuv['id_module'] == $DataModulev['id_module']) {
+                                  foreach (listmodule() as $DataModulek => $DataModules) {
+                                    if ($DataModules['id_module'] == $DataModules['nama_module']) {
                                       $selected = "selected";
                                     } else {
                                       $selected = "";
                                     }
                                   ?>
-                                    <option value="<?= $DataModulev['id_module'] ?>" <?= $selected ?>><?= $DataModulev['nama_module'] ?></option>
+                                    <option value="<?= $DataMenuv['id_module'] ?>" <?= $selected ?>><?= $DataModules['nama_module'] ?></option>
                                   <?php } ?>
                                 </select>
                               </div>
@@ -173,13 +169,9 @@
                                 <span class="input-group-text" id="basic-addon3">Path</span>
                                 <input name="path" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv['path']; ?>">
                               </div>
-                              <div class="input-group mb-2">
-                                <div class="container">
-                                  <div class="row">
-                                    <div class="col-2"><span class="input-group-text" id="basic-addon3">icon</span></div>
-                                    <div class="col-6"><?php icons(); ?></div>
-                                  </div>
-                                </div>
+                              <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon3">icon</span>
+                                <input name="icon" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv['icon']; ?>">
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

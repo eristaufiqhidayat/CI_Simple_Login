@@ -77,6 +77,7 @@ class CUser extends BaseController
             $user->email = $newemail;
             // $allowedPostFields = array_merge(['password'], $this->config->validFields, $this->config->personalFields);
             // $user              = new User($this->request->getPost($allowedPostFields));
+            // $user->password_hash = password_hash(base64_encode(hash('sha384', $newpass, true)), PASSWORD_DEFAULT);
             $user->password_hash = password_hash(base64_encode(hash('sha384', $newpass, true)), PASSWORD_DEFAULT);
         }
 
@@ -160,14 +161,14 @@ class CUser extends BaseController
 
         $data = array(
             'username'    => $this->request->getVar('username'),
-            'password_hash'    => password_hash(base64_encode(hash('sha384', $this->request->getVar('password_hash'), true)), PASSWORD_DEFAULT),
+            //'password_hash'    => password_hash(base64_encode(hash('sha384', $this->request->getVar('password_hash'), true)), PASSWORD_DEFAULT),
             'email'    => $this->request->getVar('email'),
             'menu'   =>  $datamenu,
             'menuAktip' => $menuAktip,
             'moduleAktip' => $moduleAktip
         );
         //$session->setFlashdata('sukses', 'Password Sudah dirubah');
-        return view('Admin/V_CPass', $data);
+        return view('Admin/VCPass', $data);
         // End masuk database
     }
     public function CPassDo($menuAktip = '', $moduleAktip = '')
@@ -182,7 +183,7 @@ class CUser extends BaseController
             'password_hash'     => 'required',
 
         ]);
-        var_dump($this->validate);
+
         if ($validated) {
             $data = array(
                 'username'    => $this->request->getVar('username'),
@@ -194,7 +195,7 @@ class CUser extends BaseController
             $model = new MUser();
             $model->CPass($data);
             $session->setFlashdata('sukses', 'Password Sudah dirubah');
-            return redirect()->to(base_url('index.php/dashboard/' . $menuAktip . '/' . $moduleAktip));
+            return redirect()->back()->with('message', lang('Auth.passwordChangeSuccess'));
             // End masuk database
         } else {
             echo "gagal";
