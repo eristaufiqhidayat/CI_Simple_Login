@@ -97,10 +97,10 @@
                                         </tr>
                                         <!-- Modal Edit  -->
                                         <div class="modal fade" id="Modal<?php echo $DataMenuv->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Data Siswa</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">Data Permission</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
@@ -132,10 +132,10 @@
                                         </div>
                                         <!-- /Modal Delete -->
                                         <div class="modal fade" id="ModalDelete<?php echo $DataMenuv->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg" role="document">
-                                                <div class="modal-content">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content bg-danger">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Data User</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">Data Permission</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
@@ -150,7 +150,7 @@
 
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                <button class="btn btn-danger"><i class="fas fa-trash"> Delete</i></button>
+                                                                <button class="btn btn-secondary"><i class="fas fa-trash"> Delete</i></button>
                                                             </div>
                                                         </form>
                                                     </div>

@@ -35,7 +35,7 @@
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Tambah Data User</h5>
+                      <h5 class="modal-title" id="exampleModalLabel">Tambah Data Group</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -99,7 +99,7 @@
                       <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Data Siswa</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Edit Data Group</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
@@ -131,10 +131,10 @@
                     </div>
                     <!-- /Modal Delete -->
                     <div class="modal fade" id="ModalDelete<?php echo $DataMenuv->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content bg-danger">
                           <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Data User</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Delete Data Group</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
@@ -143,13 +143,13 @@
                             <form action="<?php echo base_url('index.php/groups/hapus/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 
                               <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon3">id_menu</span>
+                                <span class="input-group-text" id="basic-addon3">Id Group</span>
                                 <input name="id" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv->id; ?>">
                               </div>
 
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button class="btn btn-danger"><i class="fas fa-trash"> Delete</i></button>
+                                <button class="btn btn-secondary"><i class="fas fa-trash"> Delete</i></button>
                               </div>
                             </form>
                           </div>
