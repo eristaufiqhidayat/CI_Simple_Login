@@ -81,7 +81,7 @@ public $requireActivation = null;
 
 ### quick installation
 
-1. Create Folder CI_Simple_Login inside htdocs
+1. Create Folder CI_Simple_Login inside htdocs and copy all source code
 2. execute dummydata.sql in mysql server (phpmyadmin)
 3. login : admin pass : 123
 
