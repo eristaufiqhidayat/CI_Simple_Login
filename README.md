@@ -1,7 +1,9 @@
 # Web Application with FW CodeIgniter 4
 
 Simple Management Menu
+![App Screenshot](menu_login.jpg)
 
+Tampilan Menu
 ![App Screenshot](CI_Simple_login.jpg)
 
 ## Prerequisites
