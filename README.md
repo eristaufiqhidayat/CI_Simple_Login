@@ -9,6 +9,9 @@ Tampilan Menu
 Reset Password
 ![App Screenshot](reset_password.jpg)
 
+Relationsip table
+![App Screenshot](relationsip.jpg)
+
 ## Prerequisites
 
 The following requirements must be met to be able to use the GitHub Actions Importer:
