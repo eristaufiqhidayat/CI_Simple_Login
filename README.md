@@ -1,4 +1,10 @@
-# Web Application with FW CodeIgniter 4, template AdminLTE, Auth sistem Myth/Auth, database MySql
+# Web Application with FW CodeIgniter 4,
+
+# template AdminLTE,
+
+# Auth sistem Myth/Auth,
+
+# database MySql
 
 Simple Management Menu
 ![App Screenshot](menu_login.jpg)
