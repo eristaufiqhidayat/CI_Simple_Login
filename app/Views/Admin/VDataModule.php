@@ -64,7 +64,7 @@
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Data Siswa</h5>
+                      <h5 class="modal-title" id="exampleModalLabel">Isi Data Module</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -77,12 +77,8 @@
                           <input name="nama_module" type="text" class="form-control" id="recipient-name" value="">
                         </div>
                         <div class="input-group mb-3">
-                          <div class="container">
-                            <div class="row">
-                              <div class="col-2"><span class="input-group-text" id="basic-addon3">icon</span></div>
-                              <div class="col-6"><input name="icon" type="text" class="form-control" id="recipient-name" value=""></div>
-                            </div>
-                          </div>
+                          <span class="input-group-text" id="basic-addon3">icon</span>
+                          <input name="icon" type="text" class="form-control" id="recipient-name" value="">
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -125,7 +121,7 @@
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Data Siswa</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Edit Data Module</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
@@ -142,12 +138,8 @@
                                 <input name="nama_module" type="text" class="form-control" id="recipient-name" value="<?php echo $DataModulev->nama_module; ?>">
                               </div>
                               <div class="input-group mb-3">
-                                <div class="container">
-                                  <div class="row">
-                                    <div class="col-2"><span class="input-group-text" id="basic-addon3">icon</span></div>
-                                    <div class="col-6"><input name="icon" type="text" class="form-control" id="recipient-name" value="<?php echo $DataModulev->icon; ?>"></div>
-                                  </div>
-                                </div>
+                                <div class="col-2"><span class="input-group-text" id="basic-addon3">icon</span></div>
+                                <div class="col-6"><input name="icon" type="text" class="form-control" id="recipient-name" value="<?php echo $DataModulev->icon; ?>"></div>
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

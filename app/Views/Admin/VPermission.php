@@ -45,12 +45,20 @@
                                             <form action="<?php echo base_url('index.php/permission/tambah/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
                                                 <?= csrf_field() ?>
                                                 <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon3">id</span>
-                                                    <input name="id" type="text" class="form-control" id="recipient-name" value="">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon3">Name</span>
-                                                    <input name="name" type="text" class="form-control" id="recipient-name" value="">
+                                                    <span class="input-group-text" id="basic-addon3">Module</span>
+                                                    <select name=id class="form-control">
+                                                        <?php
+                                                        foreach (listmodule() as $DataModulek => $DataModules) {
+                                                            if ($DataModules['id_module'] == $DataModules['nama_module']) {
+                                                                $selected = "selected";
+                                                            } else {
+                                                                $selected = "";
+                                                            }
+                                                        ?>
+
+                                                            <option value="<?= $DataModules['nama_module'] ?>|<?= $DataModules['id_module'] ?>" <?= $selected ?>><?= $DataModules['nama_module'] ?></option>
+                                                        <?php } ?>
+                                                    </select>
                                                 </div>
                                                 <div class="input-group mb-3">
                                                     <span class="input-group-text" id="basic-addon3">Descripsion</span>

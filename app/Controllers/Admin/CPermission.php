@@ -27,8 +27,16 @@ class CPermission extends BaseController
     }
     public function tambah()
     {
-        $authorize = service('authorization');
-        $authorize->createPermission($this->request->getPost('name'), $this->request->getPost('description'));
+        # not use this function because Constraint between tbl_menu and auth_permission
+        // $authorize = service('authorization');
+        // $authorize->createPermission($this->request->getPost('name'), $this->request->getPost('description'));
+        $permission           = new \App\Entities\EPermission();
+        $module = explode("|", $this->request->getPost('id'));
+        $permission->id = $module[1];
+        $permission->name = $module[0];
+        $permission->description = $this->request->getPost('description');
+        $permissions = new MPermission();
+        $permissions->insert($permission);
         return redirect()->back()->with('message', lang('Auth.userupdate'));
     }
     public function rubah()
