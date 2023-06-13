@@ -67,7 +67,7 @@ public string $baseURL = 'http://localhost/CI_Simple_Login/public/';
 define('BPATH', 'http://localhost/CI_SIMPLE_LOGIN');
 ```
 
-### edit .env file
+### Rename env to .env
 
 ![App Screenshot](envsetting.jpg)
 
