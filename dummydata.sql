@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2023 at 09:31 AM
+-- Generation Time: Jun 13, 2023 at 08:47 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -74,7 +74,7 @@ CREATE TABLE `auth_groups_permissions` (
 INSERT INTO `auth_groups_permissions` (`group_id`, `permission_id`) VALUES
 (1, 1),
 (1, 2),
-(2, 1);
+(2, 2);
 
 -- --------------------------------------------------------
 
@@ -93,7 +93,6 @@ CREATE TABLE `auth_groups_users` (
 
 INSERT INTO `auth_groups_users` (`group_id`, `user_id`) VALUES
 (1, 3),
-(1, 24),
 (2, 24),
 (4, 27);
 
@@ -111,72 +110,6 @@ CREATE TABLE `auth_logins` (
   `date` datetime NOT NULL,
   `success` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `auth_logins`
---
-
-INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `success`) VALUES
-(5, '::1', 'eristaufiq@gmail.com', 3, '2023-06-04 22:13:57', 1),
-(6, '::1', 'eristaufiq@gmail.com', 3, '2023-06-05 09:43:31', 1),
-(7, '::1', 'eristaufiq@gmail.com', 3, '2023-06-06 07:57:48', 1),
-(8, '::1', 'eristaufiq@gmail.com', 3, '2023-06-07 11:06:33', 1),
-(9, '::1', 'eristaufiq@gmail.com', 3, '2023-06-07 12:22:52', 1),
-(10, '::1', 'eristaufiq@gmail.com', 3, '2023-06-07 12:27:25', 1),
-(11, '::1', 'eris', NULL, '2023-06-07 12:43:01', 0),
-(12, '::1', 'eris@lembaharafah.com', 7, '2023-06-07 12:43:09', 1),
-(13, '::1', 'eris@lembaharafah.com', 7, '2023-06-07 12:43:36', 1),
-(14, '::1', 'eris@lembaharafah.com', 7, '2023-06-07 12:45:42', 1),
-(15, '::1', 'eristaufiq@gmail.com', 3, '2023-06-07 12:45:55', 1),
-(16, '::1', 'eristaufiq@gmail.com', 3, '2023-06-08 08:03:41', 1),
-(17, '::1', 'eris@lembaharafah.com', 7, '2023-06-08 08:04:09', 1),
-(18, '::1', 'eris', NULL, '2023-06-08 08:13:24', 0),
-(19, '::1', 'eris@lembaharafah.com', 7, '2023-06-08 08:13:32', 1),
-(20, '::1', 'admi', NULL, '2023-06-08 08:14:27', 0),
-(21, '::1', 'eristaufiq@gmail.com', 3, '2023-06-08 08:14:34', 1),
-(22, '::1', 'eris', NULL, '2023-06-08 08:15:49', 0),
-(23, '::1', 'eris@lembaharafah.com', 7, '2023-06-08 08:15:57', 1),
-(24, '::1', 'eris', NULL, '2023-06-08 12:14:33', 0),
-(25, '::1', 'eris@lembaharafah.com', 7, '2023-06-08 12:14:48', 1),
-(26, '::1', 'eristaufiq@gmail.com', 3, '2023-06-08 12:15:23', 1),
-(27, '::1', 'eristaufiq@gmail.com', 3, '2023-06-08 15:26:10', 1),
-(28, '::1', 'eris', NULL, '2023-06-08 21:54:35', 0),
-(29, '::1', 'admin', NULL, '2023-06-08 21:54:43', 0),
-(30, '::1', 'eristaufiq@gmail.com', 3, '2023-06-08 21:54:51', 1),
-(31, '::1', 'eris', NULL, '2023-06-09 00:55:29', 0),
-(32, '::1', 'eristaufiq@gmail.com', 3, '2023-06-09 00:55:35', 1),
-(33, '::1', 'eristaufiq@gmail.com', 3, '2023-06-09 00:56:27', 1),
-(34, '::1', 'eristaufiq@gmail.com', 3, '2023-06-09 00:56:36', 1),
-(35, '::1', 'eris', NULL, '2023-06-09 00:57:08', 0),
-(36, '::1', 'eristaufiq@gmail.com', 3, '2023-06-09 00:57:15', 1),
-(37, '::1', 'eristaufiq@gmail.com', 3, '2023-06-09 00:57:54', 1),
-(38, '::1', 'eric@example.com', 22, '2023-06-09 03:23:02', 1),
-(39, '::1', 'eristaufiq@gmail.com', 3, '2023-06-09 03:24:51', 1),
-(40, '::1', 'eric@example.com', 22, '2023-06-09 03:27:13', 1),
-(41, '::1', 'admin', NULL, '2023-06-09 03:28:43', 0),
-(42, '::1', 'eristaufiq@gmail.com', 3, '2023-06-09 03:28:48', 1),
-(43, '::1', 'fizfat@lembaharafah.com', 24, '2023-06-09 03:29:34', 1),
-(44, '::1', 'eristaufiq@gmail.com', 3, '2023-06-09 03:40:34', 1),
-(45, '::1', 'fizfat@lembaharafah.com', 24, '2023-06-09 04:46:42', 1),
-(46, '::1', 'eristaufiq@gmail.com', 3, '2023-06-09 04:48:09', 1),
-(47, '::1', 'eristaufiq@gmail.com', 3, '2023-06-09 05:30:27', 1),
-(48, '::1', 'fizfat@lembaharafah.com', 24, '2023-06-09 05:35:36', 1),
-(49, '::1', 'eristaufiq@gmail.com', 3, '2023-06-09 06:20:02', 1),
-(50, '::1', 'fizfat@lembaharafah.com', 24, '2023-06-09 06:20:40', 1),
-(51, '::1', 'eristaufiq@gmail.com', 3, '2023-06-09 08:41:48', 1),
-(52, '::1', 'eristaufiq@gmail.com', 3, '2023-06-09 22:49:01', 1),
-(53, '::1', 'eristaufiq@gmail.com', 3, '2023-06-10 04:35:28', 1),
-(54, '::1', 'eristaufiq@gmail.com', 3, '2023-06-10 10:21:11', 1),
-(55, '::1', 'eristaufiq@gmail.com', 3, '2023-06-10 18:37:15', 1),
-(56, '::1', 'fizfat@lembaharafah.com', 24, '2023-06-10 21:33:15', 1),
-(57, '::1', 'eristaufiq@gmail.com', 3, '2023-06-10 21:47:54', 1),
-(58, '::1', 'fizfat@lembaharafah.com', 24, '2023-06-10 21:48:24', 1),
-(59, '::1', 'eristaufiq@gmail.com', 3, '2023-06-10 21:53:45', 1),
-(60, '::1', 'fizfat@lembaharafah.com', 24, '2023-06-10 21:54:00', 1),
-(61, '::1', 'fizfat@lembaharafah.com', 24, '2023-06-11 02:30:57', 1),
-(62, '::1', 'eris', NULL, '2023-06-11 04:05:49', 0),
-(63, '::1', 'eric', NULL, '2023-06-11 04:05:58', 0),
-(64, '::1', 'fizfat@lembaharafah.com', 24, '2023-06-11 04:06:05', 1);
 
 -- --------------------------------------------------------
 
@@ -196,7 +129,7 @@ CREATE TABLE `auth_permissions` (
 
 INSERT INTO `auth_permissions` (`id`, `name`, `description`) VALUES
 (1, 'admin', 'admin module'),
-(2, 'Menu', 'Admin Menu');
+(2, 'Module', 'Managemt Module');
 
 -- --------------------------------------------------------
 
@@ -254,15 +187,6 @@ CREATE TABLE `migrations` (
   `batch` int(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `migrations`
---
-
-INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
-(13, '2017-11-20-223112', 'Myth\\Auth\\Database\\Migrations\\CreateAuthTables', 'default', 'Myth\\Auth', 1685883226, 1),
-(14, '2022-01-31-013057', 'App\\Database\\Migrations\\AddBlog', 'default', 'App', 1685883226, 1),
-(15, '2022-01-31-013057', 'App\\Database\\Migrations\\AddModule', 'default', 'App', 1685883351, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -271,7 +195,7 @@ INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`
 
 CREATE TABLE `tbl_menu` (
   `id_menu` int(5) UNSIGNED NOT NULL,
-  `id_module` int(5) NOT NULL,
+  `id_module` int(5) UNSIGNED NOT NULL,
   `path` varchar(50) NOT NULL,
   `menu` varchar(50) NOT NULL,
   `icon` varchar(50) DEFAULT NULL
@@ -418,7 +342,8 @@ ALTER TABLE `migrations`
 -- Indexes for table `tbl_menu`
 --
 ALTER TABLE `tbl_menu`
-  ADD PRIMARY KEY (`id_menu`);
+  ADD PRIMARY KEY (`id_menu`),
+  ADD KEY `id_module` (`id_module`) USING BTREE;
 
 --
 -- Indexes for table `tbl_module`
@@ -454,13 +379,13 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
 --
 ALTER TABLE `auth_permissions`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `auth_reset_attempts`
@@ -484,13 +409,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `tbl_menu`
 --
 ALTER TABLE `tbl_menu`
-  MODIFY `id_menu` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_menu` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tbl_module`
 --
 ALTER TABLE `tbl_module`
-  MODIFY `id_module` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_module` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -517,6 +442,12 @@ ALTER TABLE `auth_groups_users`
   ADD CONSTRAINT `auth_groups_users_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
+-- Constraints for table `auth_permissions`
+--
+ALTER TABLE `auth_permissions`
+  ADD CONSTRAINT `fk_ondelete` FOREIGN KEY (`id`) REFERENCES `tbl_module` (`id_module`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `auth_tokens`
 --
 ALTER TABLE `auth_tokens`
@@ -528,6 +459,12 @@ ALTER TABLE `auth_tokens`
 ALTER TABLE `auth_users_permissions`
   ADD CONSTRAINT `auth_users_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `auth_permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `auth_users_permissions_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `tbl_menu`
+--
+ALTER TABLE `tbl_menu`
+  ADD CONSTRAINT `fk_onupdate` FOREIGN KEY (`id_module`) REFERENCES `tbl_module` (`id_module`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
