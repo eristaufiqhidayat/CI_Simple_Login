@@ -68,9 +68,12 @@
                             <td>
                               <?php
                               $groupsname = groupsname($Datav['username']);
+                              $groupsval = "";
                               foreach ($groupsname as $groupsv) {
-                                echo $groupsv['description'] . ",";
+                                $groupsval .=  $groupsv['description'] . ",";
                               }
+                              $groupsval = substr($groupsval, 0, -1);
+                              echo $groupsval;
                               ?>
                             </td>
                           </tr>
@@ -92,12 +95,16 @@
                               <div class="input-group mb-1">
                                 <span class="input-group-text" id="basic-addon3">Cek Group</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <?php
-                                $groupsname = groupsall($Datav['username']);
-                                foreach ($groupsname as $groupsv) {
+                                $groupsname2 = groupsall();
+                                foreach ($groupsname2 as $groupsv2) {
+                                  $cekgroup = cekgroupsname($Datav['id'], $groupsv2['id']);
+                                  if (isset($cekgroup['group_id']) == $groupsv2['id']) $checkedG = "checked";
+                                  else $checkedG = "";
                                 ?>
+
                                   <div class="form-check form-check-inline">
-                                    <input name="group_id[<?php echo $groupsv['id']; ?>]" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="<?php echo $groupsv['id']; ?>">
-                                    <label class="form-check-label" for="inlineCheckbox1"><?php echo $groupsv['description']; ?></label>
+                                    <input name="group_id[<?php echo $groupsv2['id']; ?>]" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="<?php echo $groupsv2['id']; ?>" <?php echo $checkedG; ?>>
+                                    <label class="form-check-label" for="inlineCheckbox1"><?php echo $groupsv2['description']; ?></label>
                                   </div>
 
                                 <?php
