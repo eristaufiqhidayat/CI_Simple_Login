@@ -54,6 +54,23 @@ cd c:\xamp\htdocs\CI_Simple_Login
 composer create-project codeigniter4/appstarter .
 ```
 
+### edit app/Config/App.php
+
+```bash
+public string $baseURL = 'http://localhost/CI_Simple_Login/public/';
+```
+
+### edit app/Config/Constants.php, create new define
+
+```bash
+
+define('BPATH', 'http://localhost/CI_SIMPLE_LOGIN');
+```
+
+### edit .env file
+
+![App Screenshot](envsetting.jpg)
+
 ## 2. Installation Myth:Auth
 
 ### for Login
