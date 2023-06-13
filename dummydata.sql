@@ -263,9 +263,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `username`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(3, 'eristaufiq@gmail.com', 'admin', '$2y$10$YiKAtYbHEr6.h6F7uzg/CeEbArCrgXnUv1rAiXjzeKnEO6vFD8XIu', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-06-04 22:07:01', NULL, NULL),
-(24, 'fizfat@lembaharafah.com', 'eric', '$2y$10$H5ar4odFFOnSpxixHirW7.PrNxHBbBAwdQR4ePdyYYSFt0F76s2du', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-06-09 03:29:16', '2023-06-09 03:29:16', NULL),
-(27, 'arsila24@gmail.com', 'icha', '$2y$10$nHEBfTBL5.ovA/9XLeIThuogw0C/eRr7WxFltc0wgANJOsA2h/vnC', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-06-09 10:12:22', '2023-06-09 10:12:22', NULL);
+(3, 'eristaufiq@gmail.com', 'admin', '$2y$10$YiKAtYbHEr6.h6F7uzg/CeEbArCrgXnUv1rAiXjzeKnEO6vFD8XIu', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-06-04 22:07:01', NULL, NULL);
 
 --
 -- Indexes for dumped tables
