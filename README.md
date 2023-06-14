@@ -90,7 +90,7 @@ composer require myth/auth
     ];
 ```
 
-### execute this command
+### execute this command.
 
 ```bash
 composer create-project codeigniter4/appstarter .
