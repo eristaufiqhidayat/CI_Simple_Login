@@ -67,7 +67,8 @@ composer require myth/auth
 1. copy and replace all source code inside CI_Simple_Login
 2. create databasename ci_simple_login in ur mysql database execute dummydata.sql in mysql server (phpmyadmin)
 3. rename file env to .env
-4. login : admin pass : 123
+4. browse from browser http://localhost/CI_Simple_Login/public/
+5. login : admin pass : 123
 
 ## Contributing
 
