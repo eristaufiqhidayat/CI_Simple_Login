@@ -95,9 +95,9 @@ class CUser extends BaseController
     }
     public function tambah()
     {
-        if (!$this->config->allowRegistration) {
-            return redirect()->back()->withInput()->with('error', lang('Auth.registerDisabled'));
-        }
+        // if (!$this->config->allowRegistration) {
+        //     return redirect()->back()->withInput()->with('error', lang('Auth.registerDisabled'));
+        // }
 
         $users = model(UserModel::class);
 
