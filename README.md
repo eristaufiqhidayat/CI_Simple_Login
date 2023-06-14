@@ -116,13 +116,6 @@ public $requireActivation = null;
 1. copy and replace all source code inside CI_Simple_Login
 2. execute dummydata.sql in mysql server (phpmyadmin)
 3. adjust file env to ur database setting and rename file env to .env
-   database.default.hostname = localhost
-   database.default.database = ci_simple_login
-   database.default.username = root
-   database.default.password =
-   database.default.DBDriver = MySQLi
-   database.default.DBPrefix =
-   database.default.port = 3306
 4. login : admin pass : 123
 
 ## Contributing
