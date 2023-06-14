@@ -111,11 +111,19 @@ public $defaultUserGroup = 'user';
 public $requireActivation = null;
 ```
 
-### quick installation
+### Copy all and replace
 
-1. Create Folder CI_Simple_Login inside htdocs and copy all source code
+1. copy and replace all source code inside CI_Simple_Login
 2. execute dummydata.sql in mysql server (phpmyadmin)
-3. login : admin pass : 123
+3. adjust file env to ur database setting and rename file env to .env
+   database.default.hostname = localhost
+   database.default.database = ci_simple_login
+   database.default.username = root
+   database.default.password =
+   database.default.DBDriver = MySQLi
+   database.default.DBPrefix =
+   database.default.port = 3306
+4. login : admin pass : 123
 
 ## Contributing
 
