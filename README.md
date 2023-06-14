@@ -54,23 +54,6 @@ cd c:\xamp\htdocs\CI_Simple_Login
 composer create-project codeigniter4/appstarter .
 ```
 
-### edit app/Config/App.php
-
-```bash
-public string $baseURL = 'http://localhost/CI_Simple_Login/public/';
-```
-
-### edit app/Config/Constants.php, create new define
-
-```bash
-
-define('BPATH', 'http://localhost/CI_SIMPLE_LOGIN');
-```
-
-### Rename env to .env
-
-![App Screenshot](envsetting.jpg)
-
 ## 2. Installation Myth:Auth
 
 ### for Login
@@ -79,43 +62,11 @@ define('BPATH', 'http://localhost/CI_SIMPLE_LOGIN');
 composer require myth/auth
 ```
 
-### edit app/Config/Autoload.php
-
-```bash
-    $psr4 = [
-        'Config'      => APPPATH . 'Config',
-        APP_NAMESPACE => APPPATH,
-        'App'         => APPPATH,
-        'Myth\Auth'   => APPPATH . 'ThirdParty/myth-auth/src',
-    ];
-```
-
-### execute this command.
-
-```bash
-composer create-project codeigniter4/appstarter .
-```
-
-### MY Configuration
-
-Group Default "user"
-My Conf requireActivation = null
-
-### edit \vendor\myth\auth\src\Config\Auth.php
-
-```bash
-public $defaultUserGroup = 'user';
-```
-
-```bash
-public $requireActivation = null;
-```
-
 ### Copy all and replace
 
 1. copy and replace all source code inside CI_Simple_Login
-2. execute dummydata.sql in mysql server (phpmyadmin)
-3. adjust file env to ur database setting and rename file env to .env
+2. create databasename ci_simple_login in ur mysql database execute dummydata.sql in mysql server (phpmyadmin)
+3. rename file env to .env
 4. login : admin pass : 123
 
 ## Contributing
