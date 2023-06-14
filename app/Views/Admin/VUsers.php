@@ -30,11 +30,18 @@
               <h2>Edit Data User</h2>
             </div>
             <!-- /.card-header -->
-            <?php $session = \Config\Services::session();
-            if ($session->getFlashdata('message')) { ?>
-              <p class="alert alert-success"><?php echo $session->getFlashdata('message');
-                                              ?></p>
-            <?php } ?>
+            <?php if (session('error')) : ?>
+              <div class="alert alert-danger">
+                <?= session('error') ?>
+                <button type="button" class="close" data-dismiss="alert"><span>×</span></button>
+              </div>
+            <?php endif ?>
+            <?php if (session('msg')) : ?>
+              <div class="alert alert-success">
+                <?= session('msg') ?>
+                <button type="button" class="close" data-dismiss="alert"><span>×</span></button>
+              </div>
+            <?php endif ?>
             <div class="card-body">
 
               <div class="modal fade" id="ModalTambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
