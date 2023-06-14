@@ -1,4 +1,4 @@
-# Simple Login and Management Menu
+# POS
 
 - FW CodeIgniter 4,
 
