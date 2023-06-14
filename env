@@ -28,11 +28,14 @@
 
 # CI_ENVIRONMENT = production
 
+CI_ENVIRONMENT = development
+
 #--------------------------------------------------------------------
 
 # APP
 
 #--------------------------------------------------------------------
+app.baseURL = 'http://localhost/CI_Simple_Login/public/'
 
 # app.baseURL = ''
 
@@ -50,19 +53,13 @@
 
 #--------------------------------------------------------------------
 
-# database.default.hostname = localhost
-
-# database.default.database = ci4
-
-# database.default.username = root
-
-# database.default.password = root
-
-# database.default.DBDriver = MySQLi
-
-# database.default.DBPrefix =
-
-# database.default.port = 3306
+database.default.hostname = localhost
+database.default.database = ci_simple_login
+database.default.username = root
+database.default.password =
+database.default.DBDriver = MySQLi
+database.default.DBPrefix =
+database.default.port = 3306
 
 # database.tests.hostname = localhost
 
