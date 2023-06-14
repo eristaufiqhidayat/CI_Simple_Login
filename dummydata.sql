@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2023 at 08:47 AM
+-- Generation Time: Jun 14, 2023 at 07:51 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -94,6 +94,7 @@ CREATE TABLE `auth_groups_users` (
 INSERT INTO `auth_groups_users` (`group_id`, `user_id`) VALUES
 (1, 3),
 (2, 24),
+(2, 29),
 (4, 27);
 
 -- --------------------------------------------------------
@@ -110,6 +111,17 @@ CREATE TABLE `auth_logins` (
   `date` datetime NOT NULL,
   `success` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `auth_logins`
+--
+
+INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `success`) VALUES
+(79, '::1', 'eristaufiq@gmail.com', 3, '2023-06-13 12:29:40', 1),
+(80, '::1', 'eristaufiq@gmail.com', 3, '2023-06-13 20:17:39', 1),
+(81, '::1', 'eristaufiq@gmail.com', 3, '2023-06-14 04:14:49', 1),
+(82, '::1', 'eristaufiq@gmail.com', 3, '2023-06-14 04:22:50', 1),
+(83, '::1', 'eristaufiq@gmail.com', 3, '2023-06-14 04:30:52', 1);
 
 -- --------------------------------------------------------
 
@@ -263,7 +275,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `username`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(3, 'eristaufiq@gmail.com', 'admin', '$2y$10$YiKAtYbHEr6.h6F7uzg/CeEbArCrgXnUv1rAiXjzeKnEO6vFD8XIu', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-06-04 22:07:01', NULL, NULL);
+(3, 'eristaufiq@gmail.com', 'admin', '$2y$10$YiKAtYbHEr6.h6F7uzg/CeEbArCrgXnUv1rAiXjzeKnEO6vFD8XIu', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-06-04 22:07:01', NULL, NULL),
+(24, 'fizfat@lembaharafah.com', 'eric', '$2y$10$H5ar4odFFOnSpxixHirW7.PrNxHBbBAwdQR4ePdyYYSFt0F76s2du', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-06-09 03:29:16', '2023-06-09 03:29:16', NULL),
+(27, 'arsila24@gmail.com', 'icha', '$2y$10$nHEBfTBL5.ovA/9XLeIThuogw0C/eRr7WxFltc0wgANJOsA2h/vnC', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-06-09 10:12:22', '2023-06-09 10:12:22', NULL),
+(29, 'sherin@lembaharafah.com', 'sherin', '$2y$10$zhHkKEvknklWbyOZAuG7kuvYg5WT0JVng2MhUh8fFH5F/1tBLilUG', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-06-14 04:27:46', '2023-06-14 04:27:46', NULL);
 
 --
 -- Indexes for dumped tables
@@ -377,7 +392,7 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
@@ -413,13 +428,13 @@ ALTER TABLE `tbl_menu`
 -- AUTO_INCREMENT for table `tbl_module`
 --
 ALTER TABLE `tbl_module`
-  MODIFY `id_module` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_module` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Constraints for dumped tables
