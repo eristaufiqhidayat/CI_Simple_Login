@@ -46,20 +46,15 @@ class CMenu extends BaseController
     {
 
         $menumodel = new MDataMenu();
-        $datamenu = $menumodel->find($this->request->getPost('id_menu'));
-        unset($datamenu->id_module);
-        unset($datamenu->path);
-        unset($datamenu->menu);
-        unset($datamenu->icon);
-
-        if (!isset($datamenu->id_module)) {
-            $datamenu->id_module = $this->request->getPost('id_module');
-            $datamenu->path    = $this->request->getPost('path');
-            $datamenu->menu    = $this->request->getPost('menu');
-            $datamenu->icon    = $this->request->getPost('icon');
-        }
-        $menumodel->save($datamenu);
-
+        $menumodel->update(
+            $this->request->getPost('id_menu'),
+            [
+                "id_module" => $this->request->getPost('id_module'),
+                "path" => $this->request->getPost('path'),
+                "menu" => $this->request->getPost('menu'),
+                "icon" => $this->request->getPost('icon')
+            ]
+        );
         return redirect()->back()->with('message', lang('Auth.userupdate'));
     }
     public function delete($menuAktip = '', $moduleAktip = '')

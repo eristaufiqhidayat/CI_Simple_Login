@@ -39,16 +39,13 @@ class CModule extends BaseController
     {
 
         $modulemodel = new MModule();
-        $module = $modulemodel->find($this->request->getPost('id_module'));
-        unset($module->nama_module);
-        unset($module->icon);
-
-        if (!isset($module->nama_module)) {
-            $module->nama_module = $this->request->getPost('nama_module');
-            $module->icon    = $this->request->getPost('icon');
-        }
-        $modulemodel->save($module);
-
+        $modulemodel->update(
+            $this->request->getPost('id_module'),
+            [
+                "nama_module" => $this->request->getPost('nama_module'),
+                "icon" => $this->request->getPost('icon')
+            ]
+        );
         return redirect()->back()->with('message', lang('Auth.userupdate'));
     }
     public function hapus()
