@@ -36,9 +36,9 @@ The following requirements must be met to be able to use the GitHub Actions Impo
 git clone https://github.com/eristaufiqhidayat/Simple-Login-CI4.git
 ```
 
-. create databasename ci_simple_login in ur mysql database execute dummydata.sql in mysql server (phpmyadmin)
-. browse from browser http://localhost/SIMPLE-LOGIN-CI4/public/
-. login : admin pass : 123
+- create databasename ci_simple_login in ur mysql database execute dummydata.sql in mysql server (phpmyadmin)
+- browse from browser http://localhost/SIMPLE-LOGIN-CI4/public/
+- login : admin pass : 123
 
 ## Contributing
 
