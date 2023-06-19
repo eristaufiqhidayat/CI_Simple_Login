@@ -29,6 +29,7 @@
 The following requirements must be met to be able to use the GitHub Actions Importer:
 
 - Apache, Php and MySql Must be installed.
+- Install git https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
 ### Instalation
 
