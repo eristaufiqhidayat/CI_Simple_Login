@@ -1,4 +1,4 @@
-# Simple Login and Management Menu 1
+# Simple Login and Management Menu
 
 - FW CodeIgniter 4,
 
