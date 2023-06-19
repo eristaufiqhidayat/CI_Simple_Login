@@ -30,45 +30,15 @@ The following requirements must be met to be able to use the GitHub Actions Impo
 
 - Apache, Php and MySql Must be installed.
 
-## 1. Installation CodeIgneter 4
-
-### Create directory project in root
-
-### example
-
-For xampp with mysql database
+### Instalation
 
 ```bash
-mkdir c:\xamp\htdocs\CI_Simple_Login
+git clone https://github.com/eristaufiqhidayat/Simple-Login-CI4.git
 ```
 
-### Change Directory
-
-```bash
-cd c:\xamp\htdocs\CI_Simple_Login
-```
-
-### execute this command
-
-```bash
-composer create-project codeigniter4/appstarter .
-```
-
-## 2. Installation Myth:Auth
-
-### for Login
-
-```bash
-composer require myth/auth
-```
-
-### Copy all and replace
-
-1. copy and replace all source code inside CI_Simple_Login
-2. create databasename ci_simple_login in ur mysql database execute dummydata.sql in mysql server (phpmyadmin)
-3. rename file env to .env
-4. browse from browser http://localhost/CI_Simple_Login/public/
-5. login : admin pass : 123
+. create databasename ci_simple_login in ur mysql database execute dummydata.sql in mysql server (phpmyadmin)
+. browse from browser http://localhost/SIMPLE-LOGIN-CI4/public/
+. login : admin pass : 123
 
 ## Contributing
 
