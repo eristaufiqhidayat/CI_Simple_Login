@@ -63,6 +63,7 @@ $routes->get('/menu/index/(:any)/(:any)', 'Admin\CMenu::index/$1/$2', ['filter' 
 $routes->post('/menu/tambah/(:any)/(:any)', 'Admin\CMenu::tambah/$1/$2', ['filter' => 'role:admin']);
 $routes->post('/menu/edit/(:any)/(:any)', 'Admin\CMenu::rubah/$1/$2', ['filter' => 'role:admin']);
 $routes->post('/menu/hapus/(:any)/(:any)', 'Admin\CMenu::hapus/$1/$2', ['filter' => 'role:admin']);
+$routes->get('/menu/json/', 'Admin\CMenu::JSONMenu', ['filter' => 'role:admin']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -101,119 +101,92 @@
               <p>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalTambah" data-whatever="@mdo"><i class="fas fa-folder-plus"> New Data</i></button>
               </p>
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                  <tr>
-                    <th width=100 scope="col"></th>
-                    <th scope="col">id</th>
-                    <th scope="col">Nama Menu</th>
-                    <th scope="col">id_module</th>
-                    <th scope="col">Nama Module</th>
-                    <th scope="col">Path</th>
-                    <th scope="col">icon</th>
-
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php foreach ($DataMenu as $DataMenuv) { ?>
-                    <tr>
-                      <td>
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#Modal<?php echo $DataMenuv['id_menu']; ?>" type="button" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></button>
-                        <button class="btn btn-primary btn-danger" data-toggle="modal" data-target="#ModalDelete<?php echo $DataMenuv['id_menu']; ?>" type="button" class="btn btn-primary"><i class="fas fa-trash"></i></button>
-                      </td>
-                      <td><?php echo $DataMenuv['id_menu']; ?></td>
-                      <td><?php echo $DataMenuv['menu']; ?></td>
-                      <td><?php echo $DataMenuv['id_module']; ?></td>
-                      <td><?php echo $DataMenuv['nama_module']; ?></td>
-                      <td><?php echo $DataMenuv['path']; ?></td>
-                      <td><?php echo $DataMenuv['icon']; ?></td>
-
-                    </tr>
-                    <!-- Modal Edit  -->
-                    <div class="modal fade" id="Modal<?php echo $DataMenuv['id_menu']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Data Siswa</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            <form action="<?php echo base_url('index.php/menu/edit/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-                              <?= csrf_field() ?>
-                              <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon3">id_menu</span>
-                                <input name="id_menu" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv['id_menu']; ?>">
-                              </div>
-                              <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon3">Module</span>
-                                <select name=id_module class="form-control">
-                                  <?php
-                                  foreach (listmodule() as $DataModulek => $DataModules) {
-                                    if ($DataModules['id_module'] == $DataModules['nama_module']) {
-                                      $selected = "selected";
-                                    } else {
-                                      $selected = "";
-                                    }
-                                  ?>
-                                    <option value="<?= $DataMenuv['id_module'] ?>" <?= $selected ?>><?= $DataModules['nama_module'] ?></option>
-                                  <?php } ?>
-                                </select>
-                              </div>
-                              <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon3">Nama Menu</span>
-                                <input name="menu" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv['menu']; ?>">
-                              </div>
-                              <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon3">Path</span>
-                                <input name="path" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv['path']; ?>">
-                              </div>
-                              <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon3">icon</span>
-                                <input name="icon" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv['icon']; ?>">
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button class="btn btn-primary"><i class="fas fa-save"> Save</i></button>
-                              </div>
-                            </form>
-                          </div>
-
-                        </div>
-                      </div>
-                    </div>
-                    <!-- /Modal Delete -->
-                    <div class="modal fade" id="ModalDelete<?php echo $DataMenuv['id_menu']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Data Siswa</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body danger">
-                            <form action="<?php echo base_url('index.php/menu/delete/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-
-                              <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon3">id_menu</span>
-                                <input name="id_menu" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv['id_menu']; ?>">
-                              </div>
-
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button class="btn btn-primary"><i class="fas fa-save"> Save</i></button>
-                              </div>
-                            </form>
-                          </div>
-
-                        </div>
-                      </div>
-                    </div>
-                  <?php } ?>
-                </tbody>
+              <table id="example" class="table table-bordered table-striped">
+                <thead></thead>
+                <tr>
+                  <td></td>
+                </tr>
               </table>
+
+              <?php foreach ($DataMenu as $DataMenuv) { ?>
+                <!-- Modal Edit  -->
+                <div class="modal fade" id="ModalEdit<?php echo $DataMenuv['id_menu']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="card card-primary">
+                      <div class="card-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Data Siswa</h5>
+                      </div>
+                      <div class="modal-body">
+                        <form action="<?php echo base_url('index.php/menu/edit/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                          <?= csrf_field() ?>
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3">id_menu</span>
+                            <input name="id_menu" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv['id_menu']; ?>">
+                          </div>
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3">Module</span>
+                            <select name=id_module class="form-control">
+                              <?php
+                              foreach (listmodule() as $DataModulek => $DataModules) {
+                                if ($DataModules['id_module'] == $DataModules['nama_module']) {
+                                  $selected = "selected";
+                                } else {
+                                  $selected = "";
+                                }
+                              ?>
+                                <option value="<?= $DataMenuv['id_module'] ?>" <?= $selected ?>><?= $DataModules['nama_module'] ?></option>
+                              <?php } ?>
+                            </select>
+                          </div>
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3">Nama Menu</span>
+                            <input name="menu" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv['menu']; ?>">
+                          </div>
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3">Path</span>
+                            <input name="path" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv['path']; ?>">
+                          </div>
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3">icon</span>
+                            <input name="icon" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv['icon']; ?>">
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button class="btn btn-primary"><i class="fas fa-save"> Save</i></button>
+                          </div>
+                        </form>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="modal fade" id="ModalDelete<?php echo $DataMenuv['id_menu']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="card card-danger">
+                      <div class="card-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Data Menu</h5>
+                      </div>
+                      <div class="modal-body danger">
+                        <form action="<?php echo base_url('index.php/menu/delete/' . $menuAktip . "/" . $moduleAktip) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3">id_menu</span>
+                            <input name="id_menu" type="text" class="form-control" id="recipient-name" value="<?php echo $DataMenuv['id_menu']; ?>">
+                          </div>
+
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button class="btn btn-danger"><i class="fas fa-trash"> Delete</i></button>
+                          </div>
+                        </form>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              <?php } ?>
+
             </div>
           </div>
         </div>
@@ -287,6 +260,59 @@
 <script src="<?php echo BPATH; ?>/asset/dist/js/pages/dashboard.js"></script>
 <!-- Page specific script -->
 <script>
+  function ftable(url) {
+    $('#example').DataTable({
+      'processing': true,
+      'bVisible': false,
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+      "destroy": true,
+      'serverMethod': 'get',
+      'ajax': {
+        'url': url,
+        'dataSrc': "datamodel"
+      },
+      select: true,
+      'columns': [{
+          'data': 'id_menu',
+          'title': 'ID MENU',
+        },
+        {
+          'data': 'nama_module',
+          'title': 'NAMA MODULE',
+        },
+        {
+          'data': 'path',
+          'title': 'PATH',
+        },
+        {
+          'data': 'menu',
+          'title': 'NAMA MENU',
+        },
+        {
+          'data': 'icon',
+          'title': 'ICON',
+        },
+        {
+          'data': null,
+          'title': 'command',
+          render: function(data, type, row, meta) {
+            return '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalEdit' + data['id_menu'] + '"><i class="fas fa-pencil-alt" title="Edit Data"></i></button>' +
+              '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalDelete' + data['id_menu'] + '"><i class="fas fa-trash" title="Delete Data"></i></button>'
+          }
+        }
+      ]
+    })
+  }
+  $(document).ready(function() {
+    var url = '<?= base_url('index.php/menu/json/') ?>';
+    ftable(url);
+  })
   $('#modalButton').click(function() {
     $('#modal').modal('show')
       .find('#modalContent')

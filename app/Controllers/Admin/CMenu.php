@@ -77,4 +77,13 @@ class CMenu extends BaseController
             // End masuk database
         }
     }
+    public function JSONMenu()
+    {
+        $model = new MDataMenu();
+        $datamodel = $model->jointmodule();
+        $data = array(
+            'datamodel' => $datamodel
+        );
+        return $this->response->setJSON($data);
+    }
 }
